@@ -1,7 +1,7 @@
 # Cat The Builder BETA
-This is a tool to automate building .apk from .catrobat. Please report any malfunctioning you find.
+A tool to automate building .apk from .catrobat. Please report any malfunction you find.
 
-### No spyware. Your app - your rules
+**No spyware. Your app - your rules**
 
 ## Dependencies
 * [zip](https://support.pkware.com/pkzip/appnote)
@@ -21,10 +21,11 @@ Run:
 
 ``` ./main.sh path/to/your/game.catrobat my.package.name AppName path/to/icon.png ```
 
-You can find your .apk in Release folder
+You can find your .apk in the Release folder
 
 
 ## For Termux
+### If you face a problem, don't hesitate to open an issue or ask a question
 Install Termux via **F-Droid**
 ```# downloading dependencies ```
 
@@ -68,7 +69,7 @@ Install Termux via **F-Droid**
 ## To do
 * Remove splash screen [DONE]
 
-* Support for Termux [DONE, needs testing] r
+* Support for Termux [DONE, needs testing]
 
 * Optimization
 
