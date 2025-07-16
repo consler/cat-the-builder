@@ -1,5 +1,5 @@
 version: 2.11.1-dirty
-apkFileName: CATGAME.apk
+apkFileName: catroid-pocketCode-signedRelease.apk
 isFrameworkApk: false
 usesFramework:
   ids:

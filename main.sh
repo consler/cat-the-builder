@@ -3,6 +3,8 @@
 cp -r CATGAME/. Build/
 
 # changing the stock catgame to the user`s one
+
+rm -rf Build/assets/CATGAME >> /dev/null
 mkdir Build/assets/CATGAME >> /dev/null
 
 cp $1 Build/assets/CATGAME/CATGAME.catrobat
@@ -20,9 +22,9 @@ cp $4 Build/res/mipmap-xxhdpi/ic_launcher_round.png -f
 # zipping the apk
 apktool b Build
 
-mv Build/dist/CATGAME.apk Release
+mv Build/dist/catroid-pocketCode-signedRelease.apk Release/CATGAME.apk
 
-# rm -rf Build
+rm -rf Build
 
 cd Release
 
