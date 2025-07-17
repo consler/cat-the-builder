@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Making a temporary directory for all the building stuff
 cp -r CATGAME/. Build/
 
 # changing the stock catgame to the user`s one
@@ -19,17 +20,23 @@ sed -i "s/android:label=\"CATGAME\"/android:label=\"$3\"/g" Build/AndroidManifes
 cp $4 Build/res/mipmap-xxhdpi/ic_launcher.png -f
 cp $4 Build/res/mipmap-xxhdpi/ic_launcher_round.png -f
 
-# zipping the apk
+rm -r Build/res/mipmap-xxxhdpi
+rm -r Build/res/mipmap-xhdpi
+rm -r Build/res/mipmap-hdpi
+rm -r Build/res/mipmap-mdpi
+rm -r Build/res/mipmap-anydpi
+
+# building the apk
 apktool b Build
 
-mv Build/dist/catroid-pocketCode-signedRelease.apk Release/CATGAME.apk
+# Moving it to Release
+mv Build/dist/catroid-pocketCode-signedRelease.apk Release/CATGAME-prealigned.apk
 
 rm -rf Build
 
 cd Release
 
 # zipaligning 
-mv CATGAME.apk CATGAME-prealigned.apk
 echo "Zip aligning CATGAME..."
 zipalign 4 CATGAME-prealigned.apk CATGAME.apk
 rm CATGAME-prealigned.apk
