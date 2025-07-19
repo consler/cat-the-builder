@@ -1,3 +1,5 @@
+#  **This is an app meant for desktops. It still maintains full support through Termux for Android phones, even though usage of https://github.com/consler/Cat-The-Builder-App is recommended**
+
 # Cat The Builder BETA
 A tool to automate building .apk from .catrobat. Please report any malfunction you find.
 
