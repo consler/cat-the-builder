@@ -67,14 +67,3 @@ Install Termux via **F-Droid**
 ## Notes
 * This is still a beta, huge changes may occur, things might break etc. 
 * You can find CATGAME's source code [here](https://github.com/consler/CATGAME)
-
-## To do
-* Remove splash screen [DONE]
-
-* Support for Termux [DONE, needs testing]
-
-* Optimization
-
-* Make an app in Java
-
-* Make an android app
